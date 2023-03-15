@@ -9,13 +9,32 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        NavigationView {
+            VStack {
+                List {
+                    Text("Hello, world!")
+                    Text("Hello, world!")
+                    Text("Hello, world!")
+                }
+                
+                HStack {
+                    Spacer()
+                    
+                    Button {
+                        //Add new person
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                    .padding()
+                    .background(.green)
+                    .foregroundColor(.black)
+                    .font(.title)
+                    .clipShape(Circle())
+                    .padding(.trailing)
+                }
+            }
+            .navigationTitle("Who was that again?")
         }
-        .padding()
     }
 }
 

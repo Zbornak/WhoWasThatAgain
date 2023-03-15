@@ -66,11 +66,11 @@
 				19E7C8B429C1EAD800AB7163 /* WhoWasThatAgainApp.swift */,
 				19E7C8B629C1EAD800AB7163 /* ContentView.swift */,
 				19E7C8C229C1EB2000AB7163 /* ContentView-ViewModel.swift */,
-				19E7C8CC29C201A600AB7163 /* ImageSaver.swift */,
-				19E7C8CE29C201E100AB7163 /* ImagePicker.swift */,
 				19E7C8C429C1EB3800AB7163 /* DetailView.swift */,
 				19E7C8C629C1EB4F00AB7163 /* DetailView-ViewModel.swift */,
 				19E7C8C829C1F52A00AB7163 /* Person.swift */,
+				19E7C8CE29C201E100AB7163 /* ImagePicker.swift */,
+				19E7C8CC29C201A600AB7163 /* ImageSaver.swift */,
 				19E7C8B829C1EADA00AB7163 /* Assets.xcassets */,
 				19E7C8BA29C1EADA00AB7163 /* Preview Content */,
 			);
