@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var people = [Person]()
+    @State private var people = [Person]()
+    @State private var selectedPerson: Person?
     
     var body: some View {
         NavigationView {
@@ -18,12 +19,16 @@ struct ContentView: View {
                         HStack {
                             Text(person.name)
                                 .fontWeight(.bold)
+                                .onTapGesture {
+                                    selectedPerson = person
+                                }
+                            
                             Spacer()
                             
                             Button {
                                 //show detail
                             } label: {
-                                Image(systemName: "info.square")
+                                Image(systemName: "info.circle")
                                     .font(.headline)
                             }
                         }
@@ -48,6 +53,9 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Who was that again?")
+            .sheet(item: $selectedPerson) { person in
+                Text(person.name)
+            }
         }
     }
     
