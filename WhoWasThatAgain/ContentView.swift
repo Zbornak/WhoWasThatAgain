@@ -8,22 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject private var viewModel = ContentViewModel()
+    @State private var people = [Person]()
     
     var body: some View {
         NavigationView {
             VStack {
                 List {
-                    Text("Hello, world!")
-                    Text("Hello, world!")
-                    Text("Hello, world!")
+                    ForEach(people, id: \.id) { person in
+                        Text(person.name)
+                    }
                 }
                 
                 HStack {
                     Spacer()
                     
                     Button {
-                        //Add new person
+                        let newPerson = Person(id: UUID(), name: "Bob Zerunckle", description: "One ear, calls everyone Jim", role: "Senior Developer, Vanderlay Industries")
+                        people.append(newPerson)
                     } label: {
                         Image(systemName: "plus")
                     }
@@ -37,6 +38,11 @@ struct ContentView: View {
             }
             .navigationTitle("Who was that again?")
         }
+    }
+    
+    func getDocumentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
     }
 }
 

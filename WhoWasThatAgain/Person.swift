@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct Person: Identifiable, Codable {
+struct Person: Identifiable, Codable, Equatable {
     let id: UUID
-    let name: String
-    let description: String
-    let role: String
+    var name: String
+    var description: String
+    var role: String
     
     static let example = Person(id: UUID(), name: "Antonio Strijdom", description: "My brother", role: "Senior Developer")
 }
