@@ -15,7 +15,18 @@ struct ContentView: View {
             VStack {
                 List {
                     ForEach(people, id: \.id) { person in
-                        Text(person.name)
+                        HStack {
+                            Text(person.name)
+                                .fontWeight(.bold)
+                            Spacer()
+                            
+                            Button {
+                                //show detail
+                            } label: {
+                                Image(systemName: "info.square")
+                                    .font(.headline)
+                            }
+                        }
                     }
                 }
                 
