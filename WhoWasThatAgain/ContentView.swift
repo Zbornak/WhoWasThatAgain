@@ -15,7 +15,11 @@ struct ContentView: View {
             VStack {
                 List {
                     ForEach(people, id: \.id) { person in
-                        Text(person.name)
+                        NavigationLink {
+                            DetailView()
+                        } label: {
+                            Text(person.name)
+                        }
                     }
                 }
                 
