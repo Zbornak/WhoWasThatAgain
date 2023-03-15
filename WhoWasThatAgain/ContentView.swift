@@ -27,14 +27,14 @@ struct ContentView: View {
                     Spacer()
                     
                     Button {
-                        let newPerson = Person(id: UUID(), name: "Bob Zerunckle", description: "One ear, calls everyone Jim", role: "Senior Developer, Vanderlay Industries", meetingPlace: "WWDC2018")
+                        let newPerson = Person(id: UUID(), name: "New person", description: "", role: "", meetingPlace: "")
                         people.append(newPerson)
                     } label: {
                         Image(systemName: "plus")
                     }
                     .padding()
-                    .background(.green)
-                    .foregroundColor(.black)
+                    .background(.black.opacity(0.75))
+                    .foregroundColor(.white)
                     .font(.title)
                     .clipShape(Circle())
                     .padding(.trailing)

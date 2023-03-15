@@ -15,7 +15,19 @@ struct AddNewPersonView: View {
     //@State private var role: String
     
     var body: some View {
-        Text("Add a new person")
+        NavigationView {
+            Form {
+                Text("Hello")
+            }
+            .toolbar {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "multiply")
+                        .foregroundColor(.black)
+                }
+            }
+        }
     }
 }
 
