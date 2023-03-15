@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+extension DetailView {
+    @MainActor class DetailViewModel: ObservableObject {
+        
+    }
+}

@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+extension ContentView {
+    @MainActor class ContentViewModel: ObservableObject {
+        
+    }
+}
