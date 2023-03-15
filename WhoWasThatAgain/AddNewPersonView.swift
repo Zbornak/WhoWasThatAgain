@@ -30,6 +30,13 @@ struct AddNewPersonView: View {
             .navigationTitle("Person details")
             .toolbar {
                 Button("Save") {
+                    var newPerson = person
+                    newPerson.name = name
+                    newPerson.description = description
+                    newPerson.role = role
+                    newPerson.meetingPlace = meetingPlace
+                    
+                    onSave(newPerson)
                     dismiss()
                 }
                 

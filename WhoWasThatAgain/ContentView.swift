@@ -31,6 +31,7 @@ struct ContentView: View {
                     Button {
                         let newPerson = Person(id: UUID(), name: "New person", description: "", role: "", meetingPlace: "")
                         people.append(newPerson)
+                        showingAddNewPersonView.toggle()
                     } label: {
                         Image(systemName: "plus")
                     }
@@ -44,7 +45,7 @@ struct ContentView: View {
             }
             .navigationTitle("Who was that again?")
             .sheet(isPresented: $showingAddNewPersonView) {
-                AddNewPersonView(person: Person.example)
+                AddNewPersonView(person: Person.example) { _ in }
             }
         }
     }
