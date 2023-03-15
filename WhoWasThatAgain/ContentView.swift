@@ -9,28 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var people = [Person]()
-    @State private var selectedPerson: Person?
+    @State private var showingAddNewPersonView = false
     
     var body: some View {
         NavigationView {
             VStack {
                 List {
                     ForEach(people, id: \.id) { person in
-                        HStack {
+                        NavigationLink {
+                            //DetailView
+                        } label: {
                             Text(person.name)
                                 .fontWeight(.bold)
-                                .onTapGesture {
-                                    selectedPerson = person
-                                }
-                            
-                            Spacer()
-                            
-                            Button {
-                                //show detail
-                            } label: {
-                                Image(systemName: "info.circle")
-                                    .font(.headline)
-                            }
                         }
                     }
                 }
@@ -53,8 +43,8 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Who was that again?")
-            .sheet(item: $selectedPerson) { person in
-                Text(person.name)
+            .sheet(isPresented: $showingAddNewPersonView) {
+                AddNewPersonView(person: Person.example)
             }
         }
     }
