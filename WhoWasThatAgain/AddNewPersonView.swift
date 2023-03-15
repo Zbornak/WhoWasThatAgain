@@ -10,8 +10,6 @@ import SwiftUI
 struct AddNewPersonView: View {
     @Environment(\.dismiss) var dismiss
     
-    //var person: Person
-    
     //@State private var name: String
     //@State private var description: String
     //@State private var role: String

@@ -23,7 +23,7 @@ struct ContentView: View {
                     Spacer()
                     
                     Button {
-                        let newPerson = Person(id: UUID(), name: "Bob Zerunckle", description: "One ear, calls everyone Jim", role: "Senior Developer, Vanderlay Industries")
+                        let newPerson = Person(id: UUID(), name: "Bob Zerunckle", description: "One ear, calls everyone Jim", role: "Senior Developer, Vanderlay Industries", meetingPlace: "WWDC2018")
                         people.append(newPerson)
                     } label: {
                         Image(systemName: "plus")

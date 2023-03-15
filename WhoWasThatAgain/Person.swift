@@ -12,6 +12,7 @@ struct Person: Identifiable, Codable, Equatable {
     var name: String
     var description: String
     var role: String
+    var meetingPlace: String
     
-    static let example = Person(id: UUID(), name: "Antonio Strijdom", description: "My brother", role: "Senior Developer")
+    static let example = Person(id: UUID(), name: "Bob Zerunckle", description: "One ear, calls everyone Jim", role: "Senior Developer, Vanderlay Industries", meetingPlace: "WWDC2018")
 }
