@@ -12,5 +12,6 @@ struct Person: Identifiable, Codable {
     let name: String
     let description: String
     let role: String
-    let photo: String
+    
+    static let example = Person(id: UUID(), name: "Antonio Strijdom", description: "My brother", role: "Senior Developer")
 }
