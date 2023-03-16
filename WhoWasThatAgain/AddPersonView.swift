@@ -5,8 +5,11 @@
 //  Created by Mark Strijdom on 16/03/2023.
 //
 
+//newstuff begin
 import CoreImage
 import CoreImage.CIFilterBuiltins
+//newstuff end
+
 import SwiftUI
 
 struct AddPersonView: View {
