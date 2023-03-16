@@ -39,7 +39,14 @@ struct AddPersonView: View {
                 }
                 
                 Section {
-                    Text("+ Add photo")
+                    Button {
+                        //select picture from library
+                    } label: {
+                        HStack {
+                            Image(systemName: "person.fill.viewfinder")
+                            Text("Add photo")
+                        }
+                    }
                 } header: {
                     Text("Add a photograph")
                 }
