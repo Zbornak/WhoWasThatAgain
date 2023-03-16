@@ -30,7 +30,7 @@ struct ContentView: View {
                     Button {
                         //
                     } label: {
-                        Image(systemName: "plus")
+                        Image(systemName: "person.fill.badge.plus")
                     }
                     .padding()
                     .background(.black.opacity(0.75))
