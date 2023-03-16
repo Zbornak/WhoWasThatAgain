@@ -26,7 +26,7 @@ struct AddPersonView: View {
                     
                     Spacer()
                     
-                    Button {
+                    Button(role: .cancel) {
                         dismiss()
                     } label: {
                         Text("Cancel")
