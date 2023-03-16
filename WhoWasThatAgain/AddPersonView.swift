@@ -40,7 +40,17 @@ struct AddPersonView: View {
             .toolbar {
                 ToolbarItemGroup(placement: .bottomBar) {
                     Button {
-                        //save
+                        let newPerson = Person(context: moc)
+                        
+                        newPerson.id = UUID()
+                        newPerson.information = information
+                        newPerson.meetingPlace = meetingPlace
+                        newPerson.name = name
+                        newPerson.role = role
+                        
+                        if moc.hasChanges {
+                            try? moc.save()
+                        }
                     } label: {
                         Text("Save")
                     }
