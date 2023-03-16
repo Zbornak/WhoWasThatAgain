@@ -22,6 +22,7 @@ struct AddPersonView: View {
     @State private var surname = ""
     @State private var meetingDate = Date.now
     
+    //newstuff begin
     @State private var image: Image?
     @State private var filterIntensity = 0.5
     @State private var showingImagePicker = false
@@ -31,6 +32,7 @@ struct AddPersonView: View {
     @State private var processedImage: UIImage?
     
     let context = CIContext()
+    //newstuff end
     
     var body: some View {
         NavigationView {
@@ -98,6 +100,7 @@ struct AddPersonView: View {
         }
     }
     
+    //newstuff begin
     func loadImage() {
         guard let inputImage = inputImage else {
             return
@@ -150,6 +153,7 @@ struct AddPersonView: View {
         currentFilter = filter
         loadImage()
     }
+    //newstuff end
 }
 
 struct AddPersonView_Previews: PreviewProvider {
