@@ -10,10 +10,31 @@ import SwiftUI
 struct AddPersonView: View {
     @Environment(\.dismiss) var dismiss
     
+    //access managed object context to save data
+    @Environment(\.managedObjectContext) var moc
+    
+    @State private var information = ""
+    @State private var meetingPlace = ""
+    @State private var name = ""
+    @State private var role = ""
+    
     var body: some View {
         NavigationView {
             Form {
-                Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+                Section {
+                    TextField("Name", text: $name)
+                    TextField("Information", text: $information)
+                    TextField("Role", text: $role)
+                    TextField("Meeting place", text: $meetingPlace)
+                } header: {
+                    Text("basic details")
+                }
+                
+                Section {
+                    Text("+ Add photo")
+                } header: {
+                    Text("Add a photograph")
+                }
             }
             .navigationTitle("Add person")
             .toolbar {

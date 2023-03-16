@@ -8,9 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    //access managed object context to save data
-    @Environment(\.managedObjectContext) var moc
-    
     //fetch Person entity from data model
     @FetchRequest(sortDescriptors: []) var people: FetchedResults<Person>
     
