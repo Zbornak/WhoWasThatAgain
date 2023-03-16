@@ -9,26 +9,33 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var people = [Person]()
+    @State private var showingAddPerson = false
     
     var body: some View {
         NavigationView {
             VStack {
-                List {
-                    ForEach(people, id: \.id) { person in
-                        NavigationLink {
-                            DetailView()
-                        } label: {
-                            Text(person.name)
-                                .fontWeight(.bold)
+                if people.isEmpty {
+                    
+                } else {
+                    List {
+                        ForEach(people, id: \.id) { person in
+                            NavigationLink {
+                                DetailView()
+                            } label: {
+                                Text(person.name)
+                                    .fontWeight(.bold)
+                            }
                         }
                     }
                 }
+                
+                Spacer()
                 
                 HStack {
                     Spacer()
                     
                     Button {
-                        //
+                        showingAddPerson.toggle()
                     } label: {
                         Image(systemName: "person.fill.badge.plus")
                     }
@@ -41,6 +48,9 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Who was that again?")
+            .sheet(isPresented: $showingAddPerson) {
+                AddPersonView()
+            }
         }
     }
 }
