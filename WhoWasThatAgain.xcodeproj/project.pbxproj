@@ -17,6 +17,7 @@
 		19E7C8CF29C201E100AB7163 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E7C8CE29C201E100AB7163 /* ImagePicker.swift */; };
 		19E7C8D329C205F500AB7163 /* FileManager-DocumentsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E7C8D229C205F500AB7163 /* FileManager-DocumentsDirectory.swift */; };
 		19E7C8D529C31C0A00AB7163 /* AddPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E7C8D429C31C0A00AB7163 /* AddPersonView.swift */; };
+		19E7C8DB29C325F200AB7163 /* WhoWasThatAgain.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 19E7C8D929C325F200AB7163 /* WhoWasThatAgain.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		19E7C8CE29C201E100AB7163 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		19E7C8D229C205F500AB7163 /* FileManager-DocumentsDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-DocumentsDirectory.swift"; sourceTree = "<group>"; };
 		19E7C8D429C31C0A00AB7163 /* AddPersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPersonView.swift; sourceTree = "<group>"; };
+		19E7C8DA29C325F200AB7163 /* WhoWasThatAgain.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WhoWasThatAgain.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				19E7C8D429C31C0A00AB7163 /* AddPersonView.swift */,
 				19E7C8C429C1EB3800AB7163 /* DetailView.swift */,
 				19E7C8C829C1F52A00AB7163 /* Person.swift */,
+				19E7C8D929C325F200AB7163 /* WhoWasThatAgain.xcdatamodeld */,
 				19E7C8CE29C201E100AB7163 /* ImagePicker.swift */,
 				19E7C8CC29C201A600AB7163 /* ImageSaver.swift */,
 				19E7C8D229C205F500AB7163 /* FileManager-DocumentsDirectory.swift */,
@@ -161,6 +164,7 @@
 				19E7C8CD29C201A600AB7163 /* ImageSaver.swift in Sources */,
 				19E7C8C529C1EB3800AB7163 /* DetailView.swift in Sources */,
 				19E7C8D329C205F500AB7163 /* FileManager-DocumentsDirectory.swift in Sources */,
+				19E7C8DB29C325F200AB7163 /* WhoWasThatAgain.xcdatamodeld in Sources */,
 				19E7C8CF29C201E100AB7163 /* ImagePicker.swift in Sources */,
 				19E7C8B529C1EAD800AB7163 /* WhoWasThatAgainApp.swift in Sources */,
 			);
@@ -361,6 +365,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		19E7C8D929C325F200AB7163 /* WhoWasThatAgain.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				19E7C8DA29C325F200AB7163 /* WhoWasThatAgain.xcdatamodel */,
+			);
+			currentVersion = 19E7C8DA29C325F200AB7163 /* WhoWasThatAgain.xcdatamodel */;
+			path = WhoWasThatAgain.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 19E7C8A929C1EAD800AB7163 /* Project object */;
 }
