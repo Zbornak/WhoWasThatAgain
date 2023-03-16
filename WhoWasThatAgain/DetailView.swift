@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct DetailView: View {
+    //fetch Person entity from data model
+    @FetchRequest(sortDescriptors: []) var people: FetchedResults<Person>
+    
+    //access managed object context to save data
+    @Environment(\.managedObjectContext) var moc
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("hello")
+        //Text(person.name ?? "Unknown person")
     }
 }
 

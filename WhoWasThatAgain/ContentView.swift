@@ -24,8 +24,12 @@ struct ContentView: View {
                         NavigationLink {
                             DetailView()
                         } label: {
-                            Text(person.name ?? "Unkown person")
-                                .fontWeight(.bold)
+                            VStack(alignment: .leading) {
+                                Text(person.name ?? "Unkown person")
+                                    .fontWeight(.bold)
+                                Text(person.meetingPlace ?? "Unknown meeting place")
+                                    .foregroundColor(.secondary)
+                            }
                         }
                     }
                 }

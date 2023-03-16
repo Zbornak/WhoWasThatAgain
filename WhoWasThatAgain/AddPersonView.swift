@@ -51,6 +51,8 @@ struct AddPersonView: View {
                         if moc.hasChanges {
                             try? moc.save()
                         }
+                        
+                        dismiss()
                     } label: {
                         Text("Save")
                     }
