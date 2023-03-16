@@ -19,9 +19,17 @@ struct DetailView: View {
     var body: some View {
         NavigationView {
             VStack {
+                Image("example")
+                    .resizable()
+                    .frame(width: 200, height: 200)
+                    .clipShape(Circle())
+                    .shadow(radius: 10)
                 Text(person.name ?? "Unknown person")
+                    .font(.title)
+                    .fontWeight(.bold)
+                Text(person.role ?? "Unknown role")
+                    .foregroundColor(.secondary)
             }
-            .navigationTitle(person.name ?? "Unknown person")
         }
     }
 }
