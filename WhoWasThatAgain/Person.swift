@@ -8,7 +8,7 @@
 import Foundation
 
 struct Person: Identifiable, Codable, Equatable {
-    let id: UUID
+    var id: UUID
     var name: String
     var description: String
     var role: String

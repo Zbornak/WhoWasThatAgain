@@ -11,6 +11,8 @@ struct ContentView: View {
     @State private var people = [Person]()
     @State private var showingAddNewPersonView = false
     
+    var person: Person
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -29,8 +31,9 @@ struct ContentView: View {
                     Spacer()
                     
                     Button {
-                        let newPerson = Person(id: UUID(), name: "New person", description: "", role: "", meetingPlace: "")
+                        let newPerson = Person(id: UUID(), name: "", description: "", role: "", meetingPlace: "")
                         people.append(newPerson)
+                        
                         showingAddNewPersonView.toggle()
                     } label: {
                         Image(systemName: "plus")
@@ -45,7 +48,11 @@ struct ContentView: View {
             }
             .navigationTitle("Who was that again?")
             .sheet(isPresented: $showingAddNewPersonView) {
-                AddNewPersonView(person: Person.example) { _ in }
+                AddNewPersonView(person: person) { newPerson in
+                    if let index = people.firstIndex(of: person) {
+                        people[index] = newPerson
+                    }
+                }
             }
         }
     }
@@ -58,6 +65,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(person: Person.example)
     }
 }

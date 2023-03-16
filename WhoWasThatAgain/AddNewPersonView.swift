@@ -31,6 +31,7 @@ struct AddNewPersonView: View {
             .toolbar {
                 Button("Save") {
                     var newPerson = person
+                    newPerson.id = UUID()
                     newPerson.name = name
                     newPerson.description = description
                     newPerson.role = role
