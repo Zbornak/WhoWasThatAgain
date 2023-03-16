@@ -24,11 +24,12 @@ struct DetailView: View {
                     .frame(width: 200, height: 200)
                     .clipShape(Circle())
                     .shadow(radius: 10)
-                Text(person.name ?? "Unknown person")
+                Text("\(person.firstName ?? "Unknown first name") \(person.surname ?? "Unknown surname")")
                     .font(.title)
                     .fontWeight(.bold)
                 Text(person.role ?? "Unknown role")
                     .foregroundColor(.secondary)
+                Text("you met \(person.firstName ?? "Unknown first name") at \(person.meetingPlace ?? "Unknown meeting place")")
             }
         }
     }

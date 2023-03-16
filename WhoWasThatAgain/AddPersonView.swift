@@ -13,16 +13,18 @@ struct AddPersonView: View {
     //access managed object context to save data
     @Environment(\.managedObjectContext) var moc
     
+    @State private var firstName = ""
     @State private var information = ""
     @State private var meetingPlace = ""
-    @State private var name = ""
     @State private var role = ""
+    @State private var surname = ""
     
     var body: some View {
         NavigationView {
             Form {
                 Section {
-                    TextField("Name", text: $name)
+                    TextField("First name", text: $firstName)
+                    TextField("Surname", text: $surname)
                     TextField("Information", text: $information)
                     TextField("Role", text: $role)
                     TextField("Meeting place", text: $meetingPlace)
@@ -42,11 +44,12 @@ struct AddPersonView: View {
                     Button {
                         let newPerson = Person(context: moc)
                         
+                        newPerson.firstName = firstName
                         newPerson.id = UUID()
                         newPerson.information = information
                         newPerson.meetingPlace = meetingPlace
-                        newPerson.name = name
                         newPerson.role = role
+                        newPerson.surname = surname
                         
                         if moc.hasChanges {
                             try? moc.save()
