@@ -56,7 +56,7 @@ struct ContentView: View {
                     .padding(.trailing)
                 }
             }
-            .navigationTitle("🤔Who was that again?")
+            .navigationTitle("Who was that again?🤔")
             .sheet(isPresented: $showingAddPerson) {
                 AddPersonView()
             }
