@@ -11,6 +11,9 @@ struct ContentView: View {
     //fetch Person entity from data model
     @FetchRequest(sortDescriptors: []) var people: FetchedResults<Person>
     
+    //access managed object context to save data
+    @Environment(\.managedObjectContext) var moc
+    
     @State private var showingAddPerson = false
     
     var body: some View {
@@ -48,6 +51,11 @@ struct ContentView: View {
             .navigationTitle("🤔Who was that again?")
             .sheet(isPresented: $showingAddPerson) {
                 AddPersonView()
+            }
+            .toolbar {
+                Button("Edit") {
+                    //edit
+                }
             }
         }
     }
