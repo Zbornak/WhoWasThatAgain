@@ -14,10 +14,14 @@ struct DetailView: View {
     //access managed object context to save data
     @Environment(\.managedObjectContext) var moc
     
+    @Environment(\.dismiss) var dismiss
+    
+    @State private var showingDeleteAlert = false
+    
     let person: Person
     
     var body: some View {
-        NavigationView {
+        ScrollView {
             VStack {
                 Image("example")
                     .resizable()
@@ -31,6 +35,29 @@ struct DetailView: View {
                     .foregroundColor(.secondary)
                 Text("you met \(person.firstName ?? "Unknown first name") at \(person.meetingPlace ?? "Unknown meeting place")")
             }
+            .alert("Delete person?", isPresented: $showingDeleteAlert) {
+                Button("Delete", role: .destructive, action: deletePerson)
+                
+                Button("Cancel", role: .cancel) { }
+            } message: {
+                Text("Are you sure?")
+            }
+            .toolbar {
+                Button {
+                    showingDeleteAlert = true
+                } label: {
+                    Label("Delete this person", systemImage: "person.fill.xmark")
+                }
+            }
         }
+    }
+    
+    func deletePerson() {
+        moc.delete(person)
+        
+        if moc.hasChanges {
+            try? moc.save()
+        }
+        dismiss()
     }
 }
