@@ -14,17 +14,13 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                if people.isEmpty {
-                    
-                } else {
-                    List {
-                        ForEach(people, id: \.id) { person in
-                            NavigationLink {
-                                DetailView()
-                            } label: {
-                                Text(person.name)
-                                    .fontWeight(.bold)
-                            }
+                List {
+                    ForEach(people, id: \.id) { person in
+                        NavigationLink {
+                            DetailView()
+                        } label: {
+                            Text(person.name)
+                                .fontWeight(.bold)
                         }
                     }
                 }
