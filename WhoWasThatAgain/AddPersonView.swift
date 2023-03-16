@@ -41,6 +41,14 @@ struct AddPersonView: View {
             .navigationTitle("Add person")
             .toolbar {
                 ToolbarItemGroup(placement: .bottomBar) {
+                    Button(role: .cancel) {
+                        dismiss()
+                    } label: {
+                        Text("Cancel")
+                    }
+                    
+                    Spacer()
+                    
                     Button {
                         let newPerson = Person(context: moc)
                         
@@ -58,14 +66,6 @@ struct AddPersonView: View {
                         dismiss()
                     } label: {
                         Text("Save")
-                    }
-                    
-                    Spacer()
-                    
-                    Button(role: .cancel) {
-                        dismiss()
-                    } label: {
-                        Text("Cancel")
                     }
                 }
             }
