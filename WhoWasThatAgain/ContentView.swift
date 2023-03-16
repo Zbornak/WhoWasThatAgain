@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var people = [Person]()
+    @FetchRequest(sortDescriptors: []) var people: FetchedResults<Person>
+    
     @State private var showingAddPerson = false
     
     var body: some View {
@@ -19,7 +20,7 @@ struct ContentView: View {
                         NavigationLink {
                             DetailView()
                         } label: {
-                            Text(person.name)
+                            Text(person.name ?? "Unkown person")
                                 .fontWeight(.bold)
                         }
                     }
