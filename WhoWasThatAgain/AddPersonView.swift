@@ -8,12 +8,31 @@
 import SwiftUI
 
 struct AddPersonView: View {
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         NavigationView {
             Form {
                 Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
             }
             .navigationTitle("Add person")
+            .toolbar {
+                ToolbarItemGroup(placement: .bottomBar) {
+                    Button {
+                        //save
+                    } label: {
+                        Text("Save")
+                    }
+                    
+                    Spacer()
+                    
+                    Button {
+                        dismiss()
+                    } label: {
+                        Text("Cancel")
+                    }
+                }
+            }
         }
     }
 }
