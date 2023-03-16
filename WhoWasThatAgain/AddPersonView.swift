@@ -18,6 +18,7 @@ struct AddPersonView: View {
     @State private var meetingPlace = ""
     @State private var role = ""
     @State private var surname = ""
+    @State private var meetingDate = Date.now
     
     var body: some View {
         NavigationView {
@@ -28,6 +29,11 @@ struct AddPersonView: View {
                     TextField("Information", text: $information)
                     TextField("Role", text: $role)
                     TextField("Meeting place", text: $meetingPlace)
+                    VStack {
+                        DatePicker(selection: $meetingDate, in: ...Date.now, displayedComponents: .date) {
+                            Text("When did you meet?")
+                        }
+                    }
                 } header: {
                     Text("basic details")
                 }
@@ -58,6 +64,7 @@ struct AddPersonView: View {
                         newPerson.meetingPlace = meetingPlace
                         newPerson.role = role
                         newPerson.surname = surname
+                        newPerson.meetingDate = meetingDate
                         
                         if moc.hasChanges {
                             try? moc.save()

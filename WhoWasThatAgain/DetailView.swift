@@ -33,7 +33,8 @@ struct DetailView: View {
                     .fontWeight(.bold)
                 Text(person.role ?? "Unknown role")
                     .foregroundColor(.secondary)
-                Text("you met \(person.firstName ?? "Unknown first name") at \(person.meetingPlace ?? "Unknown meeting place")")
+                Text("You met \(person.firstName ?? "Unknown first name") at \(person.meetingPlace ?? "Unknown meeting place") on \(person.meetingDate?.formatted(date: .long, time: .omitted) ?? "Unknown date").")
+                    .padding()
             }
             .alert("Delete person?", isPresented: $showingDeleteAlert) {
                 Button("Delete", role: .destructive, action: deletePerson)
