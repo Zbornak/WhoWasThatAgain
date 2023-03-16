@@ -28,7 +28,7 @@ struct ContentView: View {
                                 Text("\(person.firstName ?? "Unknown first name") \(person.surname ?? "Unknown surname")")
                                     .fontWeight(.bold)
                                 Text(person.meetingPlace ?? "Unknown meeting place")
-                                    .foregroundColor(.secondary)
+                                    .font(.caption)
                             }
                         }
                     }
