@@ -32,6 +32,7 @@ struct ContentView: View {
                                     .fontWeight(.bold)
                                 Text(person.meetingPlace ?? "Unknown meeting place")
                                     .font(.caption)
+                                    .foregroundColor(.secondary)
                             }
                         }
                     }
