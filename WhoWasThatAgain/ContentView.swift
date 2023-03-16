@@ -9,7 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     //fetch Person entity from data model
-    @FetchRequest(sortDescriptors: []) var people: FetchedResults<Person>
+    @FetchRequest(sortDescriptors: [
+        SortDescriptor(\.surname),
+        SortDescriptor(\.firstName)
+    ]) var people: FetchedResults<Person>
     
     //access managed object context to save data
     @Environment(\.managedObjectContext) var moc
@@ -32,6 +35,7 @@ struct ContentView: View {
                             }
                         }
                     }
+                    .onDelete(perform: deletePeople)
                 }
                 
                 Spacer()
@@ -57,10 +61,19 @@ struct ContentView: View {
                 AddPersonView()
             }
             .toolbar {
-                Button("Edit") {
-                    //edit
-                }
+                EditButton()
             }
+        }
+    }
+    
+    func deletePeople(at offsets: IndexSet) {
+        for offset in offsets {
+            let person = people[offset]
+            moc.delete(person)
+        }
+        
+        if moc.hasChanges {
+            try? moc.save()
         }
     }
 }
