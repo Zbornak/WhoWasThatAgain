@@ -14,14 +14,14 @@ struct DetailView: View {
     //access managed object context to save data
     @Environment(\.managedObjectContext) var moc
     
+    let person: Person
+    
     var body: some View {
-        Text("hello")
-        //Text(person.name ?? "Unknown person")
-    }
-}
-
-struct DetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailView()
+        NavigationView {
+            VStack {
+                Text(person.name ?? "Unknown person")
+            }
+            .navigationTitle(person.name ?? "Unknown person")
+        }
     }
 }

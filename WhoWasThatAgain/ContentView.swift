@@ -22,7 +22,7 @@ struct ContentView: View {
                 List {
                     ForEach(people) { person in
                         NavigationLink {
-                            DetailView()
+                            DetailView(person: person)
                         } label: {
                             VStack(alignment: .leading) {
                                 Text(person.name ?? "Unkown person")

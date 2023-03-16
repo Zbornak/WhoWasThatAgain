@@ -5,6 +5,7 @@
         <attribute name="information" optional="YES" attributeType="String"/>
         <attribute name="meetingPlace" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="picture" optional="YES" attributeType="Binary"/>
         <attribute name="role" optional="YES" attributeType="String"/>
     </entity>
 </model>
