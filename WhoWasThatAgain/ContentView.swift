@@ -9,9 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var people = [Person]()
-    @State private var showingAddNewPersonView = false
-    
-    var person: Person
     
     var body: some View {
         NavigationView {
@@ -19,7 +16,7 @@ struct ContentView: View {
                 List {
                     ForEach(people, id: \.id) { person in
                         NavigationLink {
-                            //DetailView
+                            DetailView()
                         } label: {
                             Text(person.name)
                                 .fontWeight(.bold)
@@ -31,10 +28,7 @@ struct ContentView: View {
                     Spacer()
                     
                     Button {
-                        let newPerson = Person(id: UUID(), name: "", description: "", role: "", meetingPlace: "")
-                        people.append(newPerson)
-                        
-                        showingAddNewPersonView.toggle()
+                        //
                     } label: {
                         Image(systemName: "plus")
                     }
@@ -47,24 +41,12 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Who was that again?")
-            .sheet(isPresented: $showingAddNewPersonView) {
-                AddNewPersonView(person: person) { newPerson in
-                    if let index = people.firstIndex(of: person) {
-                        people[index] = newPerson
-                    }
-                }
-            }
         }
-    }
-    
-    func getDocumentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(person: Person.example)
+        ContentView()
     }
 }
