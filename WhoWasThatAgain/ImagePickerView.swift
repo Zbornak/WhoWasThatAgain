@@ -14,9 +14,18 @@ struct ImagePickerView: View {
     
     var body: some View {
         VStack {
-            image?
-                .resizable()
-                .scaledToFit()
+            ZStack {
+                image?
+                    .resizable()
+                    .scaledToFit()
+                
+                Button("Save image") {
+                    guard let inputImage = inputImage else { return }
+                    
+                    let imageSaver = ImageSaver()
+                    imageSaver.writeToPhotoAlbum(image: inputImage)
+                }
+            }
             
             Button {
                 showingImagePicker = true
