@@ -25,24 +25,19 @@ struct AddPersonView: View {
     
     var body: some View {
         NavigationView {
-            Form {
-                Section {
-                    TextField("First name", text: $firstName)
-                    TextField("Surname", text: $surname)
-                    TextField("Information", text: $information)
-                    TextField("Role", text: $role)
-                    TextField("Meeting place", text: $meetingPlace)
-                    VStack {
-                        DatePicker(selection: $meetingDate, in: ...Date.now, displayedComponents: .date) {
-                            Text("When did you meet?")
-                        }
-                    }
-                } header: {
-                    Text("basic details")
-                }
+            VStack {
+                TextField("First name", text: $firstName)
+                TextField("Surname", text: $surname)
+                TextField("Information", text: $information)
+                TextField("Role", text: $role)
+                TextField("Meeting place", text: $meetingPlace)
                 
-                Section {
-                    ImagePickerView(pictureId: $pictureId)
+                VStack {
+                    DatePicker(selection: $meetingDate, in: ...Date.now, displayedComponents: .date) {
+                        Text("When did you meet?")
+                    }
+                   
+                ImagePickerView(pictureId: $pictureId)
                 }
                 .navigationTitle("Add person")
                 .toolbar {
