@@ -23,7 +23,9 @@ struct DetailView: View {
     var body: some View {
         ScrollView {
             VStack {
-                Image("example")
+                let pictureUrl = FileManager.documentsDirectory.appendingPathComponent(person.pictureid?.uuidString ?? "Unknown").appendingPathExtension("jpg")
+                let imageFileName = pictureUrl.lastPathComponent
+                Image(imageFileName)
                     .resizable()
                     .frame(width: 200, height: 200)
                     .clipShape(Circle())
