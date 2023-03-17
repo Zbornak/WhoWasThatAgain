@@ -18,6 +18,7 @@ struct ImagePickerView: View {
             image?
                 .resizable()
                 .scaledToFit()
+                .frame(width: 300, height: 200)
             
             HStack {
                 Button {

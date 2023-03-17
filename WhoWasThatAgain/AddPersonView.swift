@@ -38,6 +38,7 @@ struct AddPersonView: View {
                     }
                    
                 ImagePickerView(pictureId: $pictureId)
+                        .padding()
                 }
                 .navigationTitle("Add person")
                 .toolbar {
@@ -73,6 +74,7 @@ struct AddPersonView: View {
                     }
                 }
             }
+            .padding()
         }
     }
 }
