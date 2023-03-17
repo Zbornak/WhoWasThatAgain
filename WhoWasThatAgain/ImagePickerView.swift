@@ -11,6 +11,7 @@ struct ImagePickerView: View {
     @State private var image: Image?
     @State private var inputImage: UIImage?
     @State private var showingImagePicker = false
+    @State private var showingSaveButton = false
     @Binding var pictureId: UUID?
     
     var body: some View {
@@ -23,6 +24,7 @@ struct ImagePickerView: View {
             HStack {
                 Button {
                     showingImagePicker = true
+                    showingSaveButton = true
                 } label: {
                     HStack {
                         Image(systemName: "person.fill.viewfinder")
@@ -31,18 +33,20 @@ struct ImagePickerView: View {
                 }
                 .padding(.horizontal)
                 
-                Button {
-                    guard let inputImage = inputImage else { return }
-                    
-                    let imageSaver = ImageSaver()
-                    pictureId = imageSaver.writeToPhotoAlbum(image: inputImage)
-                } label: {
-                    HStack {
-                        Image(systemName: "square.and.arrow.down")
-                        Text("Save image")
+                if showingSaveButton {
+                    Button {
+                        guard let inputImage = inputImage else { return }
+                        
+                        let imageSaver = ImageSaver()
+                        pictureId = imageSaver.writeToPhotoAlbum(image: inputImage)
+                    } label: {
+                        HStack {
+                            Image(systemName: "square.and.arrow.down")
+                            Text("Save image")
+                        }
                     }
+                    .padding(.horizontal)
                 }
-                .padding(.horizontal)
             }
         }
         .sheet(isPresented: $showingImagePicker) {
