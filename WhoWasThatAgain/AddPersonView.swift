@@ -26,13 +26,13 @@ struct AddPersonView: View {
     @State private var meetingDate = Date.now
     
     //newstuff begin
-    @State private var image: Image?
-    @State private var filterIntensity = 0.5
-    @State private var showingImagePicker = false
-    @State private var inputImage: UIImage?
-    @State private var currentFilter: CIFilter = CIFilter.sepiaTone()
-    @State private var showingFilterSheet = false
-    @State private var processedImage: UIImage?
+    //@State private var image: Image?
+    //@State private var filterIntensity = 0.5
+    //@State private var showingImagePicker = false
+    //@State private var inputImage: UIImage?
+    //@State private var currentFilter: CIFilter = CIFilter.sepiaTone()
+    //@State private var showingFilterSheet = false
+    //@State private var processedImage: UIImage?
     
     let context = CIContext()
     //newstuff end
@@ -56,107 +56,98 @@ struct AddPersonView: View {
                 }
                 
                 Section {
-                    Button {
-                        //select picture from library
-                    } label: {
-                        HStack {
-                            Image(systemName: "person.fill.viewfinder")
-                            Text("Add photo")
-                        }
-                    }
-                } header: {
-                    Text("Add a photograph")
+                    ImagePickerView()
                 }
-            }
-            .navigationTitle("Add person")
-            .toolbar {
-                ToolbarItemGroup(placement: .bottomBar) {
-                    Button(role: .cancel) {
-                        dismiss()
-                    } label: {
-                        Text("Cancel")
-                    }
-                    
-                    Spacer()
-                    
-                    Button {
-                        let newPerson = Person(context: moc)
-                        
-                        newPerson.firstName = firstName
-                        newPerson.id = UUID()
-                        newPerson.information = information
-                        newPerson.meetingPlace = meetingPlace
-                        newPerson.role = role
-                        newPerson.surname = surname
-                        newPerson.meetingDate = meetingDate
-                        
-                        if moc.hasChanges {
-                            try? moc.save()
+                .navigationTitle("Add person")
+                .toolbar {
+                    ToolbarItemGroup(placement: .bottomBar) {
+                        Button(role: .cancel) {
+                            dismiss()
+                        } label: {
+                            Text("Cancel")
                         }
                         
-                        dismiss()
-                    } label: {
-                        Text("Save")
+                        Spacer()
+                        
+                        Button {
+                            let newPerson = Person(context: moc)
+                            
+                            newPerson.firstName = firstName
+                            newPerson.id = UUID()
+                            newPerson.information = information
+                            newPerson.meetingPlace = meetingPlace
+                            newPerson.role = role
+                            newPerson.surname = surname
+                            newPerson.meetingDate = meetingDate
+                            
+                            if moc.hasChanges {
+                                try? moc.save()
+                            }
+                            
+                            dismiss()
+                        } label: {
+                            Text("Save")
+                        }
                     }
                 }
             }
         }
+        
+        //newstuff begin
+        //    func loadImage() {
+        //        guard let inputImage = inputImage else {
+        //            return
+        //        }
+        //
+        //        let beginImage = CIImage(image: inputImage)
+        //        currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
+        //        applyProcessing()
+        //    }
+        //
+        //    func save() {
+        //        guard let processedImage = processedImage else { return }
+        //
+        //        let imageSaver = ImageSaver()
+        //
+        //        imageSaver.successHandler = {
+        //            print("Success")
+        //        }
+        //
+        //        imageSaver.errorHandler = {
+        //            print("Failure: \($0.localizedDescription)")
+        //        }
+        //
+        //        imageSaver.writeToPhotoAlbum(image: processedImage)
+        //    }
+        //
+        //    func applyProcessing() {
+        //        let inputKeys = currentFilter.inputKeys
+        //
+        //        if inputKeys.contains(kCIInputIntensityKey) {
+        //            currentFilter.setValue(filterIntensity, forKey: kCIInputIntensityKey)
+        //        }
+        //        if inputKeys.contains(kCIInputRadiusKey) {
+        //            currentFilter.setValue(filterIntensity * 200, forKey: kCIInputRadiusKey)
+        //        }
+        //        if inputKeys.contains(kCIInputScaleKey) {
+        //            currentFilter.setValue(filterIntensity * 10, forKey: kCIInputScaleKey)
+        //        }
+        //
+        //        guard let outputImage = currentFilter.outputImage else { return }
+        //
+        //        if let cgimg = context.createCGImage(outputImage, from: outputImage.extent) {
+        //            let uiImage = UIImage(cgImage: cgimg)
+        //            image = Image(uiImage: uiImage)
+        //            processedImage = uiImage
+        //        }
+        //    }
+        //
+        //    func setFilter(_ filter: CIFilter) {
+        //        currentFilter = filter
+        //        loadImage()
+        //    }
+        //newstuff end
     }
-    
-    //newstuff begin
-    func loadImage() {
-        guard let inputImage = inputImage else {
-            return
-        }
-        
-        let beginImage = CIImage(image: inputImage)
-        currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
-        applyProcessing()
-    }
-    
-    func save() {
-        guard let processedImage = processedImage else { return }
-        
-        let imageSaver = ImageSaver()
-        
-        imageSaver.successHandler = {
-            print("Success")
-        }
-        
-        imageSaver.errorHandler = {
-            print("Failure: \($0.localizedDescription)")
-        }
-        
-        imageSaver.writeToPhotoAlbum(image: processedImage)
-    }
-    
-    func applyProcessing() {
-        let inputKeys = currentFilter.inputKeys
-        
-        if inputKeys.contains(kCIInputIntensityKey) {
-            currentFilter.setValue(filterIntensity, forKey: kCIInputIntensityKey)
-        }
-        if inputKeys.contains(kCIInputRadiusKey) {
-            currentFilter.setValue(filterIntensity * 200, forKey: kCIInputRadiusKey)
-        }
-        if inputKeys.contains(kCIInputScaleKey) {
-            currentFilter.setValue(filterIntensity * 10, forKey: kCIInputScaleKey)
-        }
-        
-        guard let outputImage = currentFilter.outputImage else { return }
-        
-        if let cgimg = context.createCGImage(outputImage, from: outputImage.extent) {
-            let uiImage = UIImage(cgImage: cgimg)
-            image = Image(uiImage: uiImage)
-            processedImage = uiImage
-        }
-    }
-    
-    func setFilter(_ filter: CIFilter) {
-        currentFilter = filter
-        loadImage()
-    }
-    //newstuff end
 }
 
 struct AddPersonView_Previews: PreviewProvider {
