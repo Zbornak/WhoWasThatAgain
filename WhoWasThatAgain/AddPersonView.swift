@@ -25,12 +25,17 @@ struct AddPersonView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
+            ScrollView {
                 TextField("First name", text: $firstName)
+                    .textFieldStyle(.roundedBorder)
                 TextField("Surname", text: $surname)
+                    .textFieldStyle(.roundedBorder)
                 TextField("Information", text: $information)
+                    .textFieldStyle(.roundedBorder)
                 TextField("Role", text: $role)
+                    .textFieldStyle(.roundedBorder)
                 TextField("Meeting place", text: $meetingPlace)
+                    .textFieldStyle(.roundedBorder)
                 
                 VStack {
                     DatePicker(selection: $meetingDate, in: ...Date.now, displayedComponents: .date) {
