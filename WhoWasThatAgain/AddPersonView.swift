@@ -64,6 +64,7 @@ struct AddPersonView: View {
                             newPerson.role = role
                             newPerson.surname = surname
                             newPerson.meetingDate = meetingDate
+                            newPerson.pictureid = UUID()
                             
                             if moc.hasChanges {
                                 try? moc.save()
