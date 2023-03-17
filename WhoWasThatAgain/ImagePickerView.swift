@@ -15,11 +15,11 @@ struct ImagePickerView: View {
     
     var body: some View {
         VStack {
-            ZStack {
-                image?
-                    .resizable()
-                    .scaledToFit()
-                
+            image?
+                .resizable()
+                .scaledToFit()
+            
+            HStack {
                 Button {
                     guard let inputImage = inputImage else { return }
                     
@@ -31,15 +31,17 @@ struct ImagePickerView: View {
                         Text("Save image")
                     }
                 }
-            }
-            
-            Button {
-                showingImagePicker = true
-            } label: {
-                HStack {
-                    Image(systemName: "person.fill.viewfinder")
-                    Text("Add photo")
+                .padding(.horizontal)
+                
+                Button {
+                    showingImagePicker = true
+                } label: {
+                    HStack {
+                        Image(systemName: "person.fill.viewfinder")
+                        Text("Add photo")
+                    }
                 }
+                .padding(.horizontal)
             }
         }
         .sheet(isPresented: $showingImagePicker) {
