@@ -36,6 +36,8 @@ struct ImagePickerView: View {
     func loadImage() {
         guard let inputImage = inputImage else { return }
         image = Image(uiImage: inputImage)
+        
+        UIImageWriteToSavedPhotosAlbum(inputImage, nil, nil, nil)
     }
 }
 
