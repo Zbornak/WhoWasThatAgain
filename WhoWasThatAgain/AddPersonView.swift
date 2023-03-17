@@ -5,11 +5,6 @@
 //  Created by Mark Strijdom on 16/03/2023.
 //
 
-//newstuff begin
-import CoreImage
-import CoreImage.CIFilterBuiltins
-//newstuff end
-
 import SwiftUI
 
 struct AddPersonView: View {
@@ -25,17 +20,7 @@ struct AddPersonView: View {
     @State private var surname = ""
     @State private var meetingDate = Date.now
     
-    //newstuff begin
-    //@State private var image: Image?
-    //@State private var filterIntensity = 0.5
-    //@State private var showingImagePicker = false
-    //@State private var inputImage: UIImage?
-    //@State private var currentFilter: CIFilter = CIFilter.sepiaTone()
-    //@State private var showingFilterSheet = false
-    //@State private var processedImage: UIImage?
-    
     let context = CIContext()
-    //newstuff end
     
     var body: some View {
         NavigationView {
@@ -92,59 +77,6 @@ struct AddPersonView: View {
                 }
             }
         }
-        
-        //newstuff begin
-//            func loadImage() {
-//                guard let inputImage = inputImage else { return }
-//        
-//                let beginImage = CIImage(image: inputImage)
-//                currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
-//                applyProcessing()
-//            }
-        //
-        //    func save() {
-        //        guard let processedImage = processedImage else { return }
-        //
-        //        let imageSaver = ImageSaver()
-        //
-        //        imageSaver.successHandler = {
-        //            print("Success")
-        //        }
-        //
-        //        imageSaver.errorHandler = {
-        //            print("Failure: \($0.localizedDescription)")
-        //        }
-        //
-        //        imageSaver.writeToPhotoAlbum(image: processedImage)
-        //    }
-        //
-        //    func applyProcessing() {
-        //        let inputKeys = currentFilter.inputKeys
-        //
-        //        if inputKeys.contains(kCIInputIntensityKey) {
-        //            currentFilter.setValue(filterIntensity, forKey: kCIInputIntensityKey)
-        //        }
-        //        if inputKeys.contains(kCIInputRadiusKey) {
-        //            currentFilter.setValue(filterIntensity * 200, forKey: kCIInputRadiusKey)
-        //        }
-        //        if inputKeys.contains(kCIInputScaleKey) {
-        //            currentFilter.setValue(filterIntensity * 10, forKey: kCIInputScaleKey)
-        //        }
-        //
-        //        guard let outputImage = currentFilter.outputImage else { return }
-        //
-        //        if let cgimg = context.createCGImage(outputImage, from: outputImage.extent) {
-        //            let uiImage = UIImage(cgImage: cgimg)
-        //            image = Image(uiImage: uiImage)
-        //            processedImage = uiImage
-        //        }
-        //    }
-        //
-        //    func setFilter(_ filter: CIFilter) {
-        //        currentFilter = filter
-        //        loadImage()
-        //    }
-        //newstuff end
     }
 }
 

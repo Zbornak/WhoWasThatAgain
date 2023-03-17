@@ -14,7 +14,6 @@
 		19E7C8B929C1EADA00AB7163 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19E7C8B829C1EADA00AB7163 /* Assets.xcassets */; };
 		19E7C8BC29C1EADA00AB7163 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 19E7C8BB29C1EADA00AB7163 /* Preview Assets.xcassets */; };
 		19E7C8C529C1EB3800AB7163 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E7C8C429C1EB3800AB7163 /* DetailView.swift */; };
-		19E7C8CD29C201A600AB7163 /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E7C8CC29C201A600AB7163 /* ImageSaver.swift */; };
 		19E7C8CF29C201E100AB7163 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E7C8CE29C201E100AB7163 /* ImagePicker.swift */; };
 		19E7C8D329C205F500AB7163 /* FileManager-DocumentsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E7C8D229C205F500AB7163 /* FileManager-DocumentsDirectory.swift */; };
 		19E7C8D529C31C0A00AB7163 /* AddPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19E7C8D429C31C0A00AB7163 /* AddPersonView.swift */; };
@@ -31,7 +30,6 @@
 		19E7C8B829C1EADA00AB7163 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19E7C8BB29C1EADA00AB7163 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		19E7C8C429C1EB3800AB7163 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
-		19E7C8CC29C201A600AB7163 /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
 		19E7C8CE29C201E100AB7163 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		19E7C8D229C205F500AB7163 /* FileManager-DocumentsDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-DocumentsDirectory.swift"; sourceTree = "<group>"; };
 		19E7C8D429C31C0A00AB7163 /* AddPersonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPersonView.swift; sourceTree = "<group>"; };
@@ -78,7 +76,6 @@
 				19E7C8D929C325F200AB7163 /* WhoWasThatAgain.xcdatamodeld */,
 				19E7C8DC29C3273300AB7163 /* DataController.swift */,
 				19E7C8CE29C201E100AB7163 /* ImagePicker.swift */,
-				19E7C8CC29C201A600AB7163 /* ImageSaver.swift */,
 				19E7C8D229C205F500AB7163 /* FileManager-DocumentsDirectory.swift */,
 				19E7C8B829C1EADA00AB7163 /* Assets.xcassets */,
 				19E7C8BA29C1EADA00AB7163 /* Preview Content */,
@@ -166,7 +163,6 @@
 			files = (
 				19E7C8D529C31C0A00AB7163 /* AddPersonView.swift in Sources */,
 				19E7C8B729C1EAD800AB7163 /* ContentView.swift in Sources */,
-				19E7C8CD29C201A600AB7163 /* ImageSaver.swift in Sources */,
 				19126B5629C48003001D00EE /* ImagePickerView.swift in Sources */,
 				19E7C8C529C1EB3800AB7163 /* DetailView.swift in Sources */,
 				19E7C8DD29C3273300AB7163 /* DataController.swift in Sources */,
