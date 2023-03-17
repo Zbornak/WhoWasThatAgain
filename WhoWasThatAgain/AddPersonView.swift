@@ -19,6 +19,7 @@ struct AddPersonView: View {
     @State private var role = ""
     @State private var surname = ""
     @State private var meetingDate = Date.now
+    @State private var pictureId: UUID?
     
     let context = CIContext()
     
@@ -41,7 +42,7 @@ struct AddPersonView: View {
                 }
                 
                 Section {
-                    ImagePickerView()
+                    ImagePickerView(pictureId: $pictureId)
                 }
                 .navigationTitle("Add person")
                 .toolbar {
@@ -64,7 +65,7 @@ struct AddPersonView: View {
                             newPerson.role = role
                             newPerson.surname = surname
                             newPerson.meetingDate = meetingDate
-                            newPerson.pictureid = UUID()
+                            newPerson.pictureid = pictureId
                             
                             if moc.hasChanges {
                                 try? moc.save()

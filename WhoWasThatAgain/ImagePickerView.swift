@@ -11,6 +11,7 @@ struct ImagePickerView: View {
     @State private var image: Image?
     @State private var inputImage: UIImage?
     @State private var showingImagePicker = false
+    @Binding var pictureId: UUID?
     
     var body: some View {
         VStack {
@@ -23,7 +24,7 @@ struct ImagePickerView: View {
                     guard let inputImage = inputImage else { return }
                     
                     let imageSaver = ImageSaver()
-                    imageSaver.writeToPhotoAlbum(image: inputImage)
+                    pictureId = imageSaver.writeToPhotoAlbum(image: inputImage)
                 }
             }
             
@@ -50,6 +51,6 @@ struct ImagePickerView: View {
 
 struct ImagePickerView_Previews: PreviewProvider {
     static var previews: some View {
-        ImagePickerView()
+        ImagePickerView(pictureId: .constant(nil))
     }
 }
