@@ -94,15 +94,13 @@ struct AddPersonView: View {
         }
         
         //newstuff begin
-        //    func loadImage() {
-        //        guard let inputImage = inputImage else {
-        //            return
-        //        }
-        //
-        //        let beginImage = CIImage(image: inputImage)
-        //        currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
-        //        applyProcessing()
-        //    }
+//            func loadImage() {
+//                guard let inputImage = inputImage else { return }
+//        
+//                let beginImage = CIImage(image: inputImage)
+//                currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
+//                applyProcessing()
+//            }
         //
         //    func save() {
         //        guard let processedImage = processedImage else { return }
