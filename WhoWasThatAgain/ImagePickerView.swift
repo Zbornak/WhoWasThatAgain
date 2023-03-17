@@ -20,11 +20,16 @@ struct ImagePickerView: View {
                     .resizable()
                     .scaledToFit()
                 
-                Button("Save image") {
+                Button {
                     guard let inputImage = inputImage else { return }
                     
                     let imageSaver = ImageSaver()
                     pictureId = imageSaver.writeToPhotoAlbum(image: inputImage)
+                } label: {
+                    HStack {
+                        Image(systemName: "square.and.arrow.down")
+                        Text("Save image")
+                    }
                 }
             }
             
