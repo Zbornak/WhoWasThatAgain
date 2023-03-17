@@ -9,5 +9,5 @@ import SwiftUI
 
 struct Picture: Identifiable {
     var id: UUID
-    var name: String
+    var picture: Image
 }
