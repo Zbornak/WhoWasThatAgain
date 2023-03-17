@@ -23,9 +23,7 @@ struct DetailView: View {
     var body: some View {
         ScrollView {
             VStack {
-                let pictureUrl = FileManager.documentsDirectory.appendingPathComponent(person.pictureid?.uuidString ?? "Unknown").appendingPathExtension("jpg")
-                let imageFileName = pictureUrl.lastPathComponent
-                Image(imageFileName)
+                Image(uiImage: getImage())
                     .resizable()
                     .frame(width: 200, height: 200)
                     .clipShape(Circle())
@@ -62,5 +60,15 @@ struct DetailView: View {
             try? moc.save()
         }
         dismiss()
+    }
+    
+    func getImage() -> UIImage {
+        let pictureUrl = FileManager.documentsDirectory.appendingPathComponent(person.pictureid?.uuidString ?? "Unknown").appendingPathExtension("jpg")
+        if
+            let data = try? Data(contentsOf: pictureUrl),
+            let image = UIImage(data: data) {
+            return image
+        }
+        return UIImage()
     }
 }

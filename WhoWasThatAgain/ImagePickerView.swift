@@ -21,6 +21,16 @@ struct ImagePickerView: View {
             
             HStack {
                 Button {
+                    showingImagePicker = true
+                } label: {
+                    HStack {
+                        Image(systemName: "person.fill.viewfinder")
+                        Text("Add photo")
+                    }
+                }
+                .padding(.horizontal)
+                
+                Button {
                     guard let inputImage = inputImage else { return }
                     
                     let imageSaver = ImageSaver()
@@ -29,16 +39,6 @@ struct ImagePickerView: View {
                     HStack {
                         Image(systemName: "square.and.arrow.down")
                         Text("Save image")
-                    }
-                }
-                .padding(.horizontal)
-                
-                Button {
-                    showingImagePicker = true
-                } label: {
-                    HStack {
-                        Image(systemName: "person.fill.viewfinder")
-                        Text("Add photo")
                     }
                 }
                 .padding(.horizontal)
